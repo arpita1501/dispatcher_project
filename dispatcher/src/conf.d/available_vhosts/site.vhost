@@ -1,0 +1,30 @@
+<VirtualHost *:80>
+
+ServerName site.local
+ServerAlias localhost
+
+<IfModule mod_headers.c>
+<IfModule mod_expires.c>
+
+ExpiresActive On
+
+<LocationMatch "\.(html|htm)$">
+    Header always set Cache-Control "max-age=600, public"
+</LocationMatch>
+
+<LocationMatch "^/etc.clientlibs/.*(?<!\.min)\.(css|js)$">
+Header set Cache-Control "max-age=172800, public"
+</LocationMatch>
+
+<LocationMatch "^/etc.clientlibs/.*\.(css|js)$">
+Header set Cache-Control "max-age=2592000, public"
+</LocationMatch>
+
+<LocationMatch "\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|ico|mp4|pdf)$">
+Header set Cache-Control "max-age=2592000, public"
+</LocationMatch>
+
+</IfModule>
+</IfModule>
+
+</VirtualHost>
