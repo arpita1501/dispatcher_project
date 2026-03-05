@@ -21,7 +21,7 @@ Include conf.d/variables/custom.vars
 	AllowEncodedSlashes NoDecode
 	# Add header breadcrumbs for help in troubleshooting
 	<IfModule mod_headers.c>
-		Header always set Content-Security-Policy "script-src 'self' https://trusted.example.com https://untrusted-cdn.example.com;"
+		Header always set Content-Security-Policy "script-src 'self' https://trusted.example.com"
 	</IfModule>
 	<Directory />
 		<IfModule disp_apache2.c>
